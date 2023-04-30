@@ -1,0 +1,31 @@
+ID
+
+PROSECUTOR
+A1
+A2
+
+SCANFOLDER
+S1
+S2
+S3
+S4 - Format file
+S5 - Y/N other option
+S6 - Set a number
+S7 - Valid number
+S8 - Config in Misspellings
+S9 - Class in Misspellings
+S10 - User not introduce a search term
+S11 - Cant read correctly the files
+S12 - ScanFolder
+
+GETSHA256FILE
+H1 - Exception 1
+H2 - Generic exception
+
+G - Generic helpers
+YN - yesNo
+DE (Default) - message
+
+
+createDocxPdfFile
+D1 - Data is not XML compatible, given data probably is NULL bytes or control characters. Must be Unicode or ASCII
