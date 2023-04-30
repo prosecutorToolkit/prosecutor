@@ -1,4 +1,4 @@
-![Vector Icons for React Native](https://raw.githubusercontent.com/prosecutorToolkit/prosecutor/main/logo.jpg)
+<img src="https://raw.githubusercontent.com/prosecutorToolkit/prosecutor/main/logo.jpg" width="200">
 
 # About
 Prosecutor Toolkit is a comprehensive program designed to assist in prosecution investigations. This software has a wide range of tools that facilitate the analysis of the information collected in the investigations.
