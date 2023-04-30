@@ -1,4 +1,4 @@
-#About
+# About
 Prosecutor Toolkit is a comprehensive program designed to assist in prosecution investigations. This software has a wide range of tools that facilitate the analysis of the information collected in the investigations.
 
 The program originated from the need to analyze in a short period of time a large number of files extracted from the devices seized from a defendant in the framework of the "Declarant 1" case at the Federal Prosecutor's Office No. 1 of La Plata.
@@ -12,10 +12,10 @@ In addition, the IP and URL scanning tool has been added to quickly obtain relev
 The Prosecutor Toolkit is a program designed for use on Linux operating systems and can be of great help in investigations by the Prosecutor's Office, saving valuable time for the investigator and contributing to the success of his task.
 
 ______________________
-##For Linux devices
+## For Linux devices
 *For Windows is in development*
 ______________________
-#Tools:
+# Tools:
     Deep folder scan 🔎
     Get text of file Ⓐ
     Get text of screen 🖥
@@ -30,9 +30,9 @@ ______________________
     Download forensically a YouTube Video ▷
 
 ______________________
-#How to start:
+# How to start:
 
-##First time:
+## First time:
     1. git clone https://github.com/prosecutorToolkit/prosecutor.git
     2. cd prosecutor
     3. virtualenv prosecutorenv
@@ -41,7 +41,7 @@ ______________________
     6. sudo apt-get install python3-tk
     7. python3 prosecutor.py
 
-##Launch Prosecutor:
+## Launch Prosecutor:
     1. cd prosecutor
     2. source prosecutorenv/bin/activate
     3. python3 prosecutor.py
