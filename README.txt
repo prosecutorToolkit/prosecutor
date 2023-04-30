@@ -11,6 +11,14 @@ In addition, the IP and URL scanning tool has been added to quickly obtain relev
 The Prosecutor Toolkit is a program designed for use on Linux operating systems and can be of great help in investigations by the Prosecutor's Office, saving valuable time for the investigator and contributing to the success of his task.
 
 ______________________
+How to start with:
+1. git clone https://github.com/prosecutorToolkit/prosecutor.git
+2. cd prosecutor
+3. pip3 -r requirements.txt
+4. sudo apt-get install python3-tk
+5. python3 prosecutor.py
+
+______________________
 Name: Prosecutor Toolkit 1.0
 Vertion: 1.0
 Date and place of creation: 18/06/2022, La Plata - Argentina
