@@ -1,3 +1,5 @@
+![Vector Icons for React Native](https://raw.githubusercontent.com/prosecutorToolkit/prosecutor/main/logo.jpg)
+
 # About
 Prosecutor Toolkit is a comprehensive program designed to assist in prosecution investigations. This software has a wide range of tools that facilitate the analysis of the information collected in the investigations.
 
@@ -47,7 +49,7 @@ ______________________
     3. python3 prosecutor.py
 
 ______________________
-***Name: Prosecutor Toolkit 1.0
+***Name: Prosecutor Toolkit
 Vertion: 1.0
 Date and place of creation: 18/06/2022, La Plata - Argentina
 First commit: 29/04/2023, La Plata - Argentina
