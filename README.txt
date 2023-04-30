@@ -14,9 +14,11 @@ ______________________
 How to start with:
 1. git clone https://github.com/prosecutorToolkit/prosecutor.git
 2. cd prosecutor
-3. pip3 -r requirements.txt
-4. sudo apt-get install python3-tk
-5. python3 prosecutor.py
+3. virtualenv prosecutorenv
+4. source prosecutorenv/bin/activate
+5. pip3 install -r requirements.txt
+6. sudo apt-get install python3-tk
+7. python3 prosecutor.py
 
 ______________________
 Name: Prosecutor Toolkit 1.0
