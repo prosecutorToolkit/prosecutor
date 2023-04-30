@@ -1,4 +1,4 @@
-Name: Image search engine 1.0
+Name: Prosecutor Toolkit 1.0
 Vertion: 1.0
 Date and place of creation: 18/06/2022, La Plata - Argentina
 Author: Tobías Rímoli
