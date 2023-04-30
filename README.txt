@@ -11,8 +11,8 @@ Contact: Tobiasrimoli@protonmail.com
     
      Faced with this situation, a code was developed that efficiently traverses directories and collects relevant information using OCR algorithms. Search results are presented in formats supported by different applications, such as CSV, XLSX, DOCX, and PDF.
 
-     The Prosecutor Toolkit is also useful for analyzing extractions from Cellebrite UFED devices. The program includes algorithms for misspelling and face identification using artificial intelligence.
+     The Prosecutor Toolkit is also useful for analyzing extractions from Cellebrite UFED devices.
 
-     In addition, the IP and URL scanning tool has been added to quickly obtain relevant information for computer investigations. The application also has an antivirus function that detects malware and a screen scanner function that allows quick and efficient text extraction, useful for office work.
+     In addition, the IP and URL scanning tool has been added to quickly obtain relevant information for computer investigations and multiple tools to download files and forensically extract its data. The application also has an antivirus function that detects malware and a screen scanner function that allows quick and efficient text extraction, useful for office work.
 
      The Prosecutor Toolkit is a program designed for use on Linux operating systems and can be of great help in investigations by the Prosecutor's Office, saving valuable time for the investigator and contributing to the success of his task.
