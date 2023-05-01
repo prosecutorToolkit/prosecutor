@@ -1,16 +1,16 @@
 import colorama
 
 def error(inputValue = "Unknown error. ID=DE"):
-    print(colorama.Fore.RED + 'x ERROR: {}'.format(inputValue))
+    print(colorama.Fore.RED + '✖ ERROR: {}'.format(inputValue))
     print(colorama.Style.RESET_ALL)
 
 def success(inputValue = ""):
-    print(colorama.Fore.GREEN + 'x Success! {}'.format(inputValue))
+    print(colorama.Fore.GREEN + '✔ Success! {}'.format(inputValue))
     print(colorama.Style.RESET_ALL)
 
 
 def alert(inputValue = ""):
-    print(colorama.Fore.MAGENTA + '¡! ALERT!: {}'.format(inputValue))
+    print(colorama.Fore.MAGENTA + '⚠ ALERT!: {}'.format(inputValue))
     print(colorama.Style.RESET_ALL)
 
 def title(inputValue):

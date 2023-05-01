@@ -15,7 +15,7 @@ Prosecutor Toolkit can be of great help in investigations by the prosecutor, the
 
 ______________________
 ## For Linux devices
-*For Windows and MacOS is in development*
+*For Windows and MacOS is under development*
 ______________________
 # Tools:
     Deep folder scan 🔎
@@ -40,13 +40,17 @@ ______________________
     3. virtualenv prosecutorenv
     4. source prosecutorenv/bin/activate
     5. pip3 install -r requirements.txt
-    6. sudo apt-get install python3-tk
+    6. sudo apt-get install -y python3-tk
     7. python3 prosecutor.py
 
 ## Launch Prosecutor:
     1. cd prosecutor
     2. source prosecutorenv/bin/activate
     3. python3 prosecutor.py
+
+______________________
+# Start with Docker
+    1. 
 
 ______________________
 ***Name: Prosecutor Toolkit |   Vertion: 1.0    |   Date and place of creation: 18/06/2022, La Plata - Argentina    |   First commit: 29/04/2023    |   Author: Tobías Rímoli   |   Contact: Tobiasrimoli@protonmail.com***
