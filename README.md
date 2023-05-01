@@ -48,9 +48,6 @@ ______________________
     2. source prosecutorenv/bin/activate
     3. python3 prosecutor.py
 
-______________________
-# Start with Docker
-    1. 
 
 ______________________
 ***Name: Prosecutor Toolkit |   Vertion: 1.0    |   Date and place of creation: 18/06/2022, La Plata - Argentina    |   First commit: 29/04/2023    |   Author: Tobías Rímoli   |   Contact: Tobiasrimoli@protonmail.com***
