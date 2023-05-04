@@ -1,10 +1,10 @@
 Prosecutor Toolkit
 
 > User: admin1
-> Case data:   Case number: a  Cover sheet: b  Judge: c  Prosecutor: d
-> Date time: 29-04-2023--19-45-28
+> Case data:   Case number: 12345/2023  Cover sheet: NN S/Averiguación de delito  Judge: Alejo Ramos Padilla  Prosecutor: Maria Laura Roteta
+> Date time: 30-04-2023--20-48-49
 > Main target folder: /home/admin1/Desktop/app/example/target folder to scan
-> Hash of folder: 757d1c4cc70045b5f7ffe01b5b6bc3dd
+> Hash of folder: 41dff4097d56a50fbe4569dd4111c7b081c1129d3bf85c5f4b4c4c42e66775e8
 > Format search:  > i (images) - j (jpg) - e (jpeg) - f (tiff) - b (bmp) - g (gif) - n (png) - o (ico) > t (text) > p (pdf) > d (data) - x (xls) - l (xlsx) - c (csv)
 > Search terms:  - unknown
 > Include spelling variations:  > B/V > G/J > H > U

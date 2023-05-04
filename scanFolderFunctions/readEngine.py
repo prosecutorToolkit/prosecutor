@@ -1,11 +1,12 @@
-import sys, ntpath, re, time
+import sys, ntpath, re, time, sqlite3, psutil
 
 sys.path.append('./helpers')
-from helpers.message import title
+from helpers.message import title, success, error
 from helpers.extractMetadata import extractMetadata
 from helpers.getsha256file import getsha256file
 from helpers.searchInList import searchInList
 from helpers.readText import readText
+from helpers.saveSQL import createTable, saveSQL
 
 def secsToTime(s):
     h = int(s // 3600)
@@ -15,13 +16,15 @@ def secsToTime(s):
     elif m > 0: return f'{m} Min. {s} Sec.'
     else: return f'{s} Sec.'
 
-def readEngine(dataToGetObject, filesRouteList, listOfSearch):
+def readEngine(dataToGetObject, filesRouteList, listOfSearch, sqlFilePath):
     listOfData = []
     idF = 0
     totalFiles = len(filesRouteList)
     intValue = (1/totalFiles) * 100
     progress = 0
     acumuledTime = 0
+
+    createTable(sqlFilePath)
 
     title("Starting read engine...")
 
@@ -62,8 +65,17 @@ def readEngine(dataToGetObject, filesRouteList, listOfSearch):
         sys.stdout.write(f"\rProgress: {round(progress, 2)}%  |  Files: {idF}/{totalFiles}  |  Remaining time: {secsToTime(acumuledTime / idF * (totalFiles - idF))}")
         sys.stdout.flush()
 
+        if psutil.virtual_memory().percent > 80:
+            if saveSQL(sqlFilePath, listOfData):
+                listOfData = []
+
     end_time = time.time()
 
     print(f"\n\nTotal processing time: {secsToTime(end_time - start_time)}\n")
+
+    done = saveSQL(sqlFilePath, listOfData)
+    if done:
+        success("\nDB was created")
+    else: error('\nCant write in database')
 
     return listOfData

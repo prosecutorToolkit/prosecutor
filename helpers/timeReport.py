@@ -7,6 +7,6 @@ def timeReport():
     # Format "DD-MM-AAAA--HH-MM-SS"
     formattedDate = time.strftime("%d-%m-%Y", now)
     formattedHour = time.strftime("%H-%M-%S", now)
-    formattedHandD = "--".join([formattedDate, formattedHour])
+    formattedHandD = " - ".join([formattedDate, formattedHour])
 
     return formattedHandD

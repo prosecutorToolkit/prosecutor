@@ -1,7 +1,6 @@
-import sys, platform, os
+import sys, os
 
 sys.path.append('./scanFolderFunctions')
-from helpers.selectFileFolder import selectFileFolder
 from scanFolderFunctions.formatFile import formatFile
 from scanFolderFunctions.setDataToGet import setDataToGet
 from scanFolderFunctions.searchWordsFunction import searchWordsFunction
@@ -13,15 +12,14 @@ from scanFolderFunctions.processMatchWords import processMatchWords
 from scanFolderFunctions.routeFiles import routeFiles
 from scanFolderFunctions.readEngine import readEngine
 from scanFolderFunctions.createReports import createReports
-from helpers.timeReport import timeReport
-from helpers.merkleTree import merkleTree
-
 
 sys.path.append('./helpers')
 from helpers.message import error, blue, show, success, title, yellow
 from helpers.yesNo import yesNo
+from helpers.selectFileFolder import selectFileFolder
+from helpers.timeReport import timeReport
+from helpers.merkleTree import merkleTree
 
-system = platform.system()
 
 def deepScanFolder():
     def __init__():
@@ -118,15 +116,19 @@ def deepScanFolder():
             errStr = 'routeFiles'
             allFilesRouteList, filesRouteList = routeFiles(formatsListInObj, targetFolder)
 
+            errStr = 'timeReport'
+            time_report = timeReport()
+        
+            filePath = os.path.join(destinationFolder, 'Prosecutor report ' + time_report)
+
+            sqlFilePath = filePath + '.db'
+
             errStr = 'readEngine'
-            listOfData = readEngine(dataToGetObject, filesRouteList, listOfSearch)
+            listOfData = readEngine(dataToGetObject, filesRouteList, listOfSearch, sqlFilePath)
             if listOfData: success('The files have been readed!')
             else: error('Unknown. Cant read the files. ID=S11')
 
             # print(str(listOfData))
-
-            errStr = 'timeReport'
-            time_report = timeReport()
 
             errStr = 'shownQuery'
             shownQuery = shownQuery.replace('\n', ' ')
@@ -150,7 +152,7 @@ def deepScanFolder():
             headObj = Head(time_report, caseData, targetFolder, mercle, formatsListInObj, shownQuery, misspellingsObject)
 
             errStr = 'createReports'
-            reports = createReports(dataToGetObject, listOfData, destinationFolder, outputFilesObject, allFilesRouteList, listOfSearch, headObj)
+            reports = createReports(listOfData, outputFilesObject, allFilesRouteList, headObj, filePath, sqlFilePath)
             if reports: success('The report/s have been created! 😎')
             else: error('Unknown. Cant create the report. ID=S12')
 

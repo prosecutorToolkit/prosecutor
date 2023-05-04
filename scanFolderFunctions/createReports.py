@@ -8,7 +8,7 @@ from helpers.createCSVFile import createCSVFile
 from helpers.docxToPdf import docxToPdf
 
 
-def createReports(dataToGetObject, listOfData, destinationFolder, outputFilesObject, allFilesRouteList, listOfSearch, headObj):
+def createReports(listOfData, outputFilesObject, allFilesRouteList, headObj, filePath, sqlFilePath):
 
     # try:
 
@@ -17,8 +17,6 @@ def createReports(dataToGetObject, listOfData, destinationFolder, outputFilesObj
     list_to_zip = []
 
     # hay que agregar esto: allFilesRouteList al csv y los demas    
-
-    filePath = os.path.join(destinationFolder, 'Prosecutor - Report data ' + headObj.time)
 
     # Create CSV
     if outputFilesObject.csv:
@@ -49,6 +47,13 @@ def createReports(dataToGetObject, listOfData, destinationFolder, outputFilesObj
         if successTask:
             list_to_zip.append(path_xlsx)
     
+    if outputFilesObject.sql:
+        list_to_zip.append(sqlFilePath)
+        print('SQL append to zip list')
+    else:
+        os.remove(sqlFilePath)
+        print('SQL file was removed')
+
     # Compress outputs files
     if outputFilesObject.zip:
         folder_zip = filePath + ".zip"

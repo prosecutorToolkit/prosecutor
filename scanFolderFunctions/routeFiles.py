@@ -16,12 +16,12 @@ def routeFiles(formatsListInObj, targetPath):
                 for file in listafiles:
                     recognizedFormat = False 
                     for final in formatsListInObj.list:
-                        if file.endswith(final) == True:
+                        if file.endswith(final):
                             fileRoute = os.path.join(route, file)
                             filesRouteList.append(fileRoute)
                             numallfiles += 1
                             recognizedFormat = True
-                    if recognizedFormat == False:
+                    if not recognizedFormat:
                         fileRoute = os.path.join(route, file)
                         allFilesRouteList.append(fileRoute)
             except: pass

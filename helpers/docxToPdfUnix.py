@@ -20,8 +20,7 @@ def docxToPdfUnix(file_path):
             filename = re.search('-> (.*?) using filter', process.stdout.decode())
             if filename is None:
                 error('Cant create PDF')
-            else:
-                success('PDF was created')
+            else: pass
                 # print("Archivo convertido con éxito: ", filename.group(1))
 
         return True

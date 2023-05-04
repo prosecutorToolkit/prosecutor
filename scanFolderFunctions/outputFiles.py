@@ -9,17 +9,19 @@ from helpers.yesNo import yesNo
 
 def outputFiles():
     title('REPORT/S TO CREATE')
+
     while True:
-        document_file = False; spreadsheet_file = False; pdf_file = False; csv_file = False; zip_file = False
+        document_file = False; spreadsheet_file = False; pdf_file = False; sql_file = False; csv_file = False; zip_file = False
         shownString = ''
 
         try:
             flags = input('''Set the config flags:
-            \n  - a (get all: document, spreadsheet, PDF and CSV, all compressed in a ZIP file)
+            \n  - a (get all: document, spreadsheet, PDF, CSV and database, all compressed in a ZIP file)
             \n  - d (document: docx)
             \n  - s (spreadsheet: xlsx)
             \n  - p (portable document format: PDF)
             \n  - c (commas sepparate values: csv)
+            \n  - q (database: sql)
             \n  - z (compress output in a ZIP file)
             \n > ''')
             if len(flags) == 0:
@@ -33,11 +35,13 @@ def outputFiles():
                     spreadsheet_file = True
                     pdf_file = True
                     csv_file = True
+                    sql_file = True
                     zip_file = True
                     shownString = '''\n  > Document
                                      \n  > CSV file
                                      \n  > Spreadsheet
                                      \n  > PDF
+                                     \n  > Database
                                      \n  > Compressed in a ZIP file'''
 
             else:
@@ -53,11 +57,14 @@ def outputFiles():
                 if 'p' in flags:
                     pdf_file = True
                     shownString += '\n  > PDF'
+                if 'q' in flags:
+                    sql_file = True
+                    shownString += '\n  > Database'
                 if 'z' in flags:
                     zip_file = True
                     shownString += '\n  > Compressed in a ZIP file'
                 
-                if zip_file == True and document_file == False and spreadsheet_file == False and pdf_file == False and csv_file == False:
+                if zip_file and not document_file and not spreadsheet_file and not pdf_file and not csv_file:
                     error("You must select at least one output type. Zip isn't a output file, this option can compress the selected output files (example: PDF, CSV, etc.). ID=S3")
                     continue
 
@@ -74,6 +81,7 @@ def outputFiles():
                         self.xlsx = spreadsheet_file
                         self.pdf = pdf_file
                         self.csv = csv_file
+                        self.sql = sql_file
                         self.zip = zip_file
                 return Config
 
