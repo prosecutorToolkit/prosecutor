@@ -8,12 +8,12 @@ from helpers.yesNo import yesNo
 def formatFile():
     title('FORMAT FILE')
     while True:
-        getPDF = False; getTXT = False; getPNG = False; getICO = False; getJPG = False; getJPEG = False; getTIFF = False; getBMP = False; getGIF = False; getXLS = False; getXLSX = False; getCSV = False
+        getPDF = False; getTXT = False; getPNG = False; getICO = False; getJPG = False; getJPEG = False; getTIFF = False; getBMP = False; getGIF = False; getXLS = False; getXLSX = False; getCSV = False; getDOC = False; getDOCX = False; getODT = False
         shownString = ''
 
         try:
             blue('Set the format flags:') 
-            flags = str(input('''\n  - a (get all: images, pdf, xlsx, txt)
+            flags = str(input('''\n  > a (get all: images, txt, documents, etc)
                         \n  > i (images)
                         \n      - j (jpg)
                         \n      - e (jpeg)
@@ -24,13 +24,17 @@ def formatFile():
                         \n      - o (ico)
                         \n  > p (PDFs)
                         \n  > t (txt)
+                        \n  > m (documents)
+                        \n      - w (doc)
+                        \n      - x (docx)
+                        \n      - o (odt)
                         \n  > d (data)
                         \n      - x (xls)
                         \n      - l (xlsx)
                         \n      - c (csv)
                         \n  > '''))
             if len(flags) == 0:
-                error("Must select al least one format to get")
+                error("Must select al least one format")
                 continue
             flags = list(flags.lower())
 
@@ -38,6 +42,7 @@ def formatFile():
                 getJPG = True; getJPEG = True; getTIFF = True; getBMP = True; getGIF = True; getPNG = True; getICO = True
                 getTXT = True
                 getPDF = True
+                getDOC = True; getDOCX = True; getODT = True
                 shownString = '''  > i (images)
                                 \n      - j (jpg)
                                 \n      - e (jpeg)
@@ -48,6 +53,10 @@ def formatFile():
                                 \n      - o (ico)
                                 \n  > t (text)
                                 \n  > p (pdf)
+                                \n  > m (documents)
+                                \n      - w (doc)
+                                \n      - x (docx)
+                                \n      - o (odt)
                                 \n  > d (data)
                                 \n      - x (xls)
                                 \n      - l (xlsx)
@@ -118,8 +127,20 @@ def formatFile():
                     if 'c' in flags:
                         getCSV = True
                         shownString += '\n  > csv'
+                if 'm' in flags:
+                    getDOC = True; getDOCX = True; getODT = True
+                else:
+                    if 'w' in flags:
+                        getDOC = True
+                        shownString += '\n  > doc'
+                    if 'x' in flags:
+                        getDOCX = True
+                        shownString += '\n  > docx'
+                    if 'o' in flags:
+                        getODT = True
+                        shownString += '\n  > odt'
 
-            if not getPDF and not getTXT and not getJPG and not getJPEG and not getTIFF and not getBMP and not getGIF and not getXLS and not getXLSX and not getCSV and not getPNG and not getICO:
+            if not getPDF and not getTXT and not getJPG and not getJPEG and not getTIFF and not getBMP and not getGIF and not getXLS and not getXLSX and not getCSV and not getPNG and not getICO and not getDOC and not getDOCX and not getODT:
                 error('Invalid configuration')
                 continue
             
@@ -136,9 +157,12 @@ def formatFile():
             if getCSV: fList.append('.csv')
             if getPNG: fList.append('.png')
             if getICO: fList.append('.ico')
+            if getDOC: fList.append('.doc')
+            if getDOCX: fList.append('.docx')
+            if getODT: fList.append('.odt')
 
             answer = yesNo('Selected files:\n{}\nAre you sure that you want to get this? (y/n)\n > '.format(shownString))
-            if answer == False: continue
+            if not answer: continue
 
             formatStr = shownString.replace('\n', ' ')
             while '  ' in formatStr: formatStr = formatStr.replace('  ', ' ')

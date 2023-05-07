@@ -25,7 +25,7 @@ def createReportsFromDB():
 
     filePath = os.path.join(destinationFolder, 'Prosecutor report ' + 'built at ' + timeReport())
 
-    createReports(sqlFilePath, filePath, outputFilesObject)
+    createReports(filePath, outputFilesObject, sqlFilePath)
 
     success('Reports created from database successfully!')
 

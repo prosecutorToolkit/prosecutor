@@ -114,7 +114,7 @@ def createExcelFile(path_xlsx, listOfData, headObj, ignoredFilesList):
     
     book.save(path_xlsx)
 
-    success("Xlsx was created")
+    # success("Xlsx was created")
 
     return True
 

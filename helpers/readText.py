@@ -11,7 +11,8 @@ def readText(file):
     try:
         ext = os.path.splitext(file)[1]
         if ext == ".txt": text = readTXT(file)
-        elif ext == ".doc" or ext == '.docx': text = readDocDocx(file)
+        elif ext == ".doc" or ext == '.docx' or ext == '.odt':
+            text = readDocDocx(file)
         elif ext == ".pdf": text = readPDF(file)
         else: text = readImage(file)
     except: error("Cant read: " + str(file))

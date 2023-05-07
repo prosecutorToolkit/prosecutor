@@ -33,3 +33,9 @@ SFF2 - The file is not a database
 
 createDocxPdfFile
 D1 - Data is not XML compatible, given data probably is NULL bytes or control characters. Must be Unicode or ASCII
+
+readDocDocx
+RDD - Cant read file
+
+setSearchType
+SST - Invalid option

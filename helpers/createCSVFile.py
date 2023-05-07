@@ -32,7 +32,7 @@ def createCSVFile(path_csv, listOfData, headObj):
                     row.append(value)
                 writer.writerow(row)
 
-        success('CSV was created')
+        # success('CSV was created')
 
         return True
 

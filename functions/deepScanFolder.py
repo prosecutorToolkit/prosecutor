@@ -12,7 +12,8 @@ from scanFolderFunctions.processMatchWords import processMatchWords
 from scanFolderFunctions.routeFiles import routeFiles
 from scanFolderFunctions.readEngine import readEngine
 from scanFolderFunctions.createReports import createReports
-from helpers.sql import createScanReportTable
+from scanFolderFunctions.sql import createScanReportTable
+from scanFolderFunctions.setSearchType import setSearchType
 
 sys.path.append('./helpers')
 from helpers.message import error, blue, show, success, title, yellow
@@ -21,7 +22,8 @@ from helpers.selectFileFolder import selectFileFolder
 from helpers.timeReport import timeReport
 from helpers.merkleTree import merkleTree
 from helpers.createHeader import header
-from helpers.sql import saveHeaderInTable, saveIgnoredFilesInDB
+from scanFolderFunctions.sql import saveHeaderInTable, saveIgnoredFilesInDB
+from scanFolderFunctions.setRegEx import setRegEx
 
 
 def deepScanFolder():
@@ -38,16 +40,25 @@ def deepScanFolder():
             errStr = 'setDataToGet'
             dataToGetObject = setDataToGet()
 
-            errStr = 'searchWordsFunction'
-            listOfSearch = searchWordsFunction()
+            regex = False
+            shownQuery = False
+            listOfSearch = ''
+            searchType = setSearchType()
 
-            if listOfSearch:
-                errStr = 'listOfSearch'
-                shownQuery = ''
-                for term in listOfSearch: shownQuery += "\n    - " + term
+            if searchType == 1:  # By keyword
+                errStr = 'searchWordsFunction'
+                listOfSearch = searchWordsFunction()
 
-                errStr = 'misspellings'
-                misspellingsObject = misspellings()
+                if listOfSearch:
+                    errStr = 'listOfSearch'
+                    shownQuery = ''
+                    for term in listOfSearch: shownQuery += "\n    - " + term
+
+                    errStr = 'misspellings'
+                    misspellingsObject = misspellings()
+            elif searchType == 2:  # By RegEx
+                regex = setRegEx()
+            # False = No search
 
             errStr = 'outputFiles'
             outputFilesObject = outputFiles()
@@ -59,21 +70,24 @@ def deepScanFolder():
             caseData = setJudicialDataCase()
 
             while True:
-                def text(listOfSearch):
+                def text(listOfSearch, regex):
                     blue('\nCONFIGURATION:')
                     show('1. Target folder:', targetFolder)
-                    show('2. Data to get:', dataToGetObject.string)
-                    show('3. Format files:', formatsListInObj.string)
-                    show('4. Search term (optional):', shownQuery)
+                    if searchType:
+                        show('2. Data to get:', dataToGetObject.string)
+                    show('3. Format output:', formatsListInObj.string)
                     if listOfSearch:
+                        show('4. Search term (optional):', shownQuery)
                         show('5. Misspellings (optional):', misspellingsObject.string)
+                    if regex:
+                        show('5. Regular expression (optional):', regex)
                     blue('REPORT:')
                     show('6. Output files:', outputFilesObject.string)
                     show('7. Destination folder:', destinationFolder)
                     show('8. Judicial Data Case:', caseData)
 
                 errStr = 'text function num 1'
-                text(listOfSearch)
+                text(listOfSearch, regex)
                 confirm = yesNo('\nDo you want to confirm this configuration and start scan? (y/n)\n > ')
                 if confirm: break
                 else:
@@ -103,6 +117,7 @@ def deepScanFolder():
                         elif update == 5 and not listOfSearch:
                             error('You have not introduce a search term. This option is not available. ID=10')
                         elif update == 5 and listOfSearch: misspellingsObject = misspellings()
+                        elif update == 5 and regex: regex = setRegEx()
                         elif update == 6: outputFilesObject = outputFiles()
                         elif update == 7: destinationFolder = setDestination()
                         elif update == 8: caseData = setJudicialDataCase()
@@ -116,13 +131,14 @@ def deepScanFolder():
                 errStr = 'processMatchWords'
                 listOfSearch = processMatchWords(listOfSearch, misspellingsObject)
                 if not listOfSearch: break
+            elif regex: pass
             else: yellow('There are no inputs setted to process')
 
             errStr = 'routeFiles'
             filesRouteList, ignoredFilesList = routeFiles(formatsListInObj, targetFolder)
 
             if not filesRouteList:
-                error('The target folder havent files to scan. ID=S13')
+                error('The target folder has no files to scan. ID=S13')
                 break
 
             errStr = 'timeReport'
@@ -130,34 +146,36 @@ def deepScanFolder():
         
             filePath = os.path.join(destinationFolder, 'Prosecutor report ' + time_report)
 
-            errStr = 'shownQuery'
-            shownQuery = shownQuery.replace('\n', ' ')
-            while '  ' in shownQuery: shownQuery = shownQuery.replace('  ', ' ')
+            if listOfSearch:
+                errStr = 'shownQuery'
+                shownQuery = shownQuery.replace('\n', ' ')
+                while '  ' in shownQuery: shownQuery = shownQuery.replace('  ', ' ')
 
             errStr = 'merkleTree'
             mercle = str(merkleTree(targetFolder))
 
-            errStr = 'Head class'
-            headObj = header(time_report, caseData, targetFolder, mercle, formatsListInObj.strInLine, shownQuery, misspellingsObject.strInLine)
+            errStr = 'Head class'  ## admitir que no haya misspellings acá y en data
+            try:
+                headObj = header(time_report, caseData, targetFolder, mercle, formatsListInObj.strInLine, shownQuery, misspellingsObject.strInLine, False)
+            except:
+                headObj = header(time_report, caseData, targetFolder, mercle, formatsListInObj.strInLine, shownQuery, False, regex)
 
-            sqlFilePath = filePath + '.db'
-            createScanReportTable(sqlFilePath)
 
-            errStr = 'Save header in DB'
-            data = (time_report, caseData, targetFolder, mercle, formatsListInObj.strInLine, shownQuery, misspellingsObject.strInLine)
-            saveHeaderInTable(sqlFilePath, data)
-
-            saveIgnoredFilesInDB(sqlFilePath, ignoredFilesList)
+            errStr = 'data to header'
+            try:
+                reportData = (time_report, caseData, targetFolder, mercle, formatsListInObj.strInLine, shownQuery, misspellingsObject.strInLine)
+            except:
+                reportData = (time_report, caseData, targetFolder, mercle, formatsListInObj.strInLine, regex, '')
 
             errStr = 'Read engine'
-            listOfData = readEngine(dataToGetObject, filesRouteList, listOfSearch, sqlFilePath)
+            listOfData = readEngine(dataToGetObject, filesRouteList, listOfSearch, regex)
             if listOfData:
                 success('The files have been readed!')
             else:
                 error('Unknown. Cant read the files. ID=S11')
 
-            errStr = 'createReports'
-            reports = createReports(sqlFilePath, filePath, outputFilesObject, headObj, listOfData, ignoredFilesList)
+            errStr = 'Create reports'
+            reports = createReports(filePath, outputFilesObject, 'sqlFilePath', headObj, listOfData, ignoredFilesList, reportData, time_report)
             if reports: success('The report/s have been created! 😎')
             else: error('Unknown. Cant create the report. ID=S12')
 

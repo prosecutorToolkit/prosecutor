@@ -21,6 +21,7 @@ def indifferent(listOfSearch, letter1, letter2):
                 for letter1 in value1: vb_list_by_Letter.append(letter1)
             position = 0
             for variation in vblist_by_term:
+                string = ""
                 for letter in searchTerm:
                     newletter = False
                     if letter == letter1_upper or letter == letter2_upper or letter == letter1_lower or letter == letter2_lower:
@@ -30,8 +31,6 @@ def indifferent(listOfSearch, letter1, letter2):
                     if newletter == True: string += vbvalue
                     else: string += letter
                 new_string += string + ","
-                string = ""
-                print(7)
         else: new_string += searchTerm + ","
     return new_string[:-1]
 

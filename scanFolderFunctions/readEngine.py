@@ -1,12 +1,12 @@
 import sys, ntpath, re, time, os
 
 sys.path.append('./helpers')
-from helpers.message import title
+from helpers.message import title, yellow
 from helpers.extractMetadata import extractMetadata
 from helpers.getsha256file import getsha256file
 from helpers.searchInList import searchInList
 from helpers.readText import readText
-from helpers.sql import saveSQL
+from helpers.searchWithRegEx import searchWithRegEx
 
 def secsToTime(s):
     h = int(s // 3600)
@@ -16,7 +16,7 @@ def secsToTime(s):
     elif m > 0: return f'{m} Min. {s} Sec.'
     else: return f'{s} Sec.'
 
-def readEngine(dataToGetObject, filesRouteList, listOfSearch, sqlFilePath):
+def readEngine(dataToGetObject, filesRouteList, listOfSearch, regex):
     listOfData = []
     idF = 0
     totalFiles = len(filesRouteList)
@@ -53,9 +53,12 @@ def readEngine(dataToGetObject, filesRouteList, listOfSearch, sqlFilePath):
             matchF2, cutText2 = searchInList(listOfSearch, metadataF)
             matchF += matchF2
             cutText += cutText2
+        if regex:
+            matchF = searchWithRegEx(regex, text)
+                # Is not available search with searchTerm and RegEx, about that it assign directly with =, ignoring if listOfSearch assign values inside (not use +=)
 
         text = re.sub(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]', ' ', text)
-            # reemplace characters not not allowed with white spaces
+        # replace characters not not allowed with white spaces
 
         if not dataToGetObject.text: text = ''
 
@@ -70,11 +73,11 @@ def readEngine(dataToGetObject, filesRouteList, listOfSearch, sqlFilePath):
         # if psutil.virtual_memory().percent > 85:
         #     saveSQL(sqlFilePath, listOfData)
         #     listOfData = []
+        # This function is not available right now about it clean listOfData list.
+        # To use this functionality I set the saveSQL inside this file (readEngine) and no inside the top file (deepScanFolder).
 
     end_time = time.time()
 
-    print(f"\n\nTotal processing time: {secsToTime(end_time - start_time)}\n")
-
-    saveSQL(sqlFilePath, listOfData)
+    yellow(f"\n\nTotal processing time: {secsToTime(end_time - start_time)}\n")
 
     return listOfData

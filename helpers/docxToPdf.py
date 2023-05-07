@@ -12,7 +12,7 @@ def docxToPdf(path_docx, path_pdf):
         else:
             pdfSuccess = docxToPdfUnix(path_docx)
 
-        success("PDF was created")
+        # success("PDF was created")
 
         if pdfSuccess:
             return True           # PDF created

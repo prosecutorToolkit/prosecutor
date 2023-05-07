@@ -21,6 +21,3 @@ def extractMetadata(file):
                 try: data = getVideoMetadata(file)
                 except: data = 'Cant get metadata'
     return data
-
-# print(extractMetadata('/home/admin1/Downloads/8CadnxQnMIA_48.mp3'))
-# print(extractMetadata('/home/admin1/Downloads/Android Studio Install in Linux.mp4'))
