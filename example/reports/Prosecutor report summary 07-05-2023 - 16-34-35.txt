@@ -1,0 +1,28 @@
+REPORT/S CREATED:
+- User: admin1
+- Time: 07-05-2023 - 16-34-35
+- Output folder: /home/admin1/Desktop
+
+> Report N°1
+- File: Prosecutor report 07-05-2023 - 16-34-35.db
+- Hash sha-256: b980c3d836534f16a6b3eb5fcbb53fbcaf6e6099a7f18141539fbe539f9a2f66
+
+> Report N°2
+- File: Prosecutor report 07-05-2023 - 16-34-35.csv
+- Hash sha-256: 7770a03a73e1f43e4bcaed5856a42c547d88a3ee3bcb7ff2a306dbac3ad17461
+
+> Report N°3
+- File: Prosecutor report 07-05-2023 - 16-34-35.docx
+- Hash sha-256: 62b8546b7550c947b039dc149cdaf6bace6573f157819fbe8ab8478c29323492
+
+> Report N°4
+- File: Prosecutor report 07-05-2023 - 16-34-35.pdf
+- Hash sha-256: fdc31cfd020d1a2979fb53aba6542c65954f14b2a207ae92642fcbe1fe3f23d7
+
+> Report N°5
+- File: Prosecutor report 07-05-2023 - 16-34-35.xlsx
+- Hash sha-256: c58015877720cafc1b4a536c54c00664cd1e04fcacb85cc3aa5f669b906da34f
+
+REPORTSs COMPRESSED AT:
+- File: Prosecutor report 07-05-2023 - 16-34-35.zip
+- Hash sha-256: e197262f06bdc883d921d3319858c725722a35e853777217b821f6ae59e1735b

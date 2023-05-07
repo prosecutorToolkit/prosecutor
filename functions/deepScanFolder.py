@@ -176,8 +176,10 @@ def deepScanFolder():
 
             errStr = 'Create reports'
             reports = createReports(filePath, outputFilesObject, 'sqlFilePath', headObj, listOfData, ignoredFilesList, reportData, time_report)
-            if reports: success('The report/s have been created! 😎')
-            else: error('Unknown. Cant create the report. ID=S12')
+
+            if not reports:
+                error('Unknown. Cant create the report. ID=S12')
+
 
             # except:
             #     error('scanFolder ' + errStr)

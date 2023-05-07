@@ -9,6 +9,8 @@ from helpers.docxToPdf import docxToPdf
 from scanFolderFunctions.sql import getScanReportData, getHeaderFromSQL, getIgnoredFilesData
 from helpers.createHeader import header
 from helpers.getsha256file import getsha256file
+from helpers.yesNo import yesNo
+from helpers.launchFile import launchFile
 
 sys.path.append('./scanFolderFunctions')
 from scanFolderFunctions.sql import createScanReportTable, saveSQL, saveIgnoredFilesInDB, saveHeaderInTable
@@ -18,14 +20,19 @@ def createReports(filePath, outputFilesObject, sqlFilePath, headObj=None, listOf
     # try:
     list_to_zip = []
 
-    global idL
+    global idL, txtString
     idL = 0
+    txtString = ''
     def showFileData(file):
-        global idL
+        global idL, txtString
         idL+=1
         if idL == 1:
-            green(f'\nREPORT/S CREATED:\n- User: {os.getlogin()}\n- Time: {time_report}\n- Output folder: {os.path.dirname(file)}')
-        green(f'> Report N°{idL}\n- File: {ntpath.basename(file)}\n- Hash sha-256: {getsha256file(file)}\n')
+            string = f'REPORT/S CREATED:\n- User: {os.getlogin()}\n- Time: {time_report}\n- Output folder: {os.path.dirname(file)}\n'
+            green(string)
+            txtString = string
+        string = f'\n> Report N°{idL}\n- File: {ntpath.basename(file)}\n- Hash sha-256: {getsha256file(file)}\n'
+        green(string)
+        txtString += string
 
     if listOfData == None:
         print("Reading data...")
@@ -39,7 +46,7 @@ def createReports(filePath, outputFilesObject, sqlFilePath, headObj=None, listOf
     else:
         if outputFilesObject.sql:
             print("Creating report/s...")
-            print("Creating database...")
+            print("Creating database...\n")
             sqlFilePath = filePath + '.db'
             createScanReportTable(sqlFilePath)
             saveSQL(sqlFilePath, listOfData)
@@ -103,8 +110,19 @@ def createReports(filePath, outputFilesObject, sqlFilePath, headObj=None, listOf
         # success('Zip was created')
 
         if idL == 1: s = ''
-        else: s = 's'
-        green(f'Report{s} compressed at:\n- File: {ntpath.basename(path_zip)}\n- Hash sha-256: {getsha256file(path_zip)}\n')
+        else: s = 'S'
+        string = f'\nREPORT{s} COMPRESSED AT:\n- File: {ntpath.basename(path_zip)}\n- Hash sha-256: {getsha256file(path_zip)}'
+        green(string)
+        txtString += string
+
+        txtFile = os.path.join(os.path.dirname(filePath), f'Prosecutor report summary {time_report}.txt')
+        with open(txtFile, 'wt') as file:
+            file.write(txtString)
+
+        success('The report/s have been created! 😎')
+
+        confirm = yesNo('\nDo you want to launch the summary? (y/n)\n > ')
+        if confirm: launchFile(txtFile)
 
     return True
 
