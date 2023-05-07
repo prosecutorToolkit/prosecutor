@@ -4,7 +4,7 @@ PROSECUTOR
 A1
 A2
 
-SCANFOLDER
+DEEP FOLDER SCAN
 S1
 S2
 S3
@@ -17,6 +17,7 @@ S9 - Class in Misspellings
 S10 - User not introduce a search term
 S11 - Cant read correctly the files
 S12 - ScanFolder
+S13 - The target folder havent files to scan
 
 GETSHA256FILE
 H1 - Exception 1
@@ -26,6 +27,9 @@ G - Generic helpers
 YN - yesNo
 DE (Default) - message
 
+selectFileFolder
+SFF1 - Invalid target
+SFF2 - The file is not a database
 
 createDocxPdfFile
 D1 - Data is not XML compatible, given data probably is NULL bytes or control characters. Must be Unicode or ASCII

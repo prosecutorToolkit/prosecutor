@@ -6,17 +6,26 @@ from helpers.createExcelFile import createExcelFile
 from helpers.createDocxFile import createDocxFile
 from helpers.createCSVFile import createCSVFile
 from helpers.docxToPdf import docxToPdf
+from helpers.sql import getScanReportData, getHeaderFromSQL, getIgnoredFilesData
+from helpers.createHeader import header
 
 
-def createReports(listOfData, outputFilesObject, allFilesRouteList, headObj, filePath, sqlFilePath):
+# def createReports(sqlFilePath, filePath, outputFilesObject, headObj=None, listOfData=None):
+def createReports(sqlFilePath, filePath, outputFilesObject, headObj=None, listOfData=None, ignoredFilesList=None):
+
+    if listOfData == None:
+        listOfData = getScanReportData(sqlFilePath)
+        headerData = getHeaderFromSQL(sqlFilePath)
+        headerData = headerData[0]
+        headObj = header(headerData[0], headerData[1], headerData[2], headerData[3], headerData[4], headerData[5], headerData[6])
+        filePath += ' Data getted at ' + headerData[0]  # TIME_REPORT
+        ignoredFilesList = getIgnoredFilesData(sqlFilePath)
 
     # try:
 
     print("Creating report...")
 
     list_to_zip = []
-
-    # hay que agregar esto: allFilesRouteList al csv y los demas    
 
     # Create CSV
     if outputFilesObject.csv:
@@ -43,7 +52,7 @@ def createReports(listOfData, outputFilesObject, allFilesRouteList, headObj, fil
     # Create Xlsx
     if outputFilesObject.xlsx:
         path_xlsx = filePath + '.xlsx'
-        successTask = createExcelFile(listOfData, path_xlsx, headObj)
+        successTask = createExcelFile(path_xlsx, listOfData, headObj, ignoredFilesList)
         if successTask:
             list_to_zip.append(path_xlsx)
     
@@ -67,7 +76,7 @@ def createReports(listOfData, outputFilesObject, allFilesRouteList, headObj, fil
 
         success('Zip was created')
     
-    print('Reportes creados exitosamente!')
+    print('Reports created successfully!')
     return True
 
     # else: False

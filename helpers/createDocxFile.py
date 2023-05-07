@@ -78,7 +78,7 @@ def createDocxFile(path_docx, listOfData, headObj):
     doc.add_paragraph()
 
     # Configuración de la tabla2
-    tabla2 = doc.add_table(rows=0, cols=6)  # cols=7
+    tabla2 = doc.add_table(rows=0, cols=7)  # cols=7
     tabla2.style = 'Table Grid'
     tabla2.autofit = False
     ancho_predeterminado = 14.0 - section.left_margin.inches - section.right_margin.inches
@@ -87,32 +87,36 @@ def createDocxFile(path_docx, listOfData, headObj):
     ancho_columna2 = Inches(1.5)    # PATH
     ancho_columna3 = Inches(1.0)    # HASH SHA-256
     ancho_columna4 = Inches(0.85)   # MATCH
-    # ancho_columna5 = Inches(5.0)    # TEXT
-    ancho_columna6 = Inches(ancho_predeterminado - ancho_columna0.inches - ancho_columna1.inches - ancho_columna2.inches - ancho_columna3.inches - ancho_columna4.inches) # METADATA   - ancho_columna5.inches
+    ancho_columna5 = Inches(5.0)    # TEXT
+    ancho_columna6 = Inches(ancho_predeterminado - ancho_columna0.inches - ancho_columna1.inches - ancho_columna2.inches - ancho_columna3.inches - ancho_columna4.inches - ancho_columna5.inches) # METADATA   
     tabla2.columns[0].width = ancho_columna0
     tabla2.columns[1].width = ancho_columna1
     tabla2.columns[2].width = ancho_columna2
     tabla2.columns[3].width = ancho_columna3
     tabla2.columns[4].width = ancho_columna4
-    tabla2.columns[5].width = ancho_columna6
-    # tabla2.columns[6].width = ancho_columna6
+    tabla2.columns[5].width = ancho_columna5
+    tabla2.columns[6].width = ancho_columna6
 
     # Agregar los valores a la tabla2
-    headTable2 = ("ID", "NAME", "PATH", "HASH SHA-256", "MATCH", "METADATA")  # "TEXT",
+    headTable2 = ("ID", "NAME", "PATH", "HASH SHA-256", "MATCH", "CUT_TEXT", "METADATA")
     row = tabla2.add_row().cells
-    for i in range(6):  # 7
+    for i in range(7):  # 7
         p = row[i].add_paragraph()
         p.add_run(headTable2[i]).bold = True
 
-    for idF, name, path, hashF, match, textF, metadata in listOfData:
+    for value in listOfData:
+        print(len(value))
+        print(str(value))
+
+    for idF, name, path, hashF, match, cutText, textF, metadata in listOfData:
         row = tabla2.add_row().cells
         row[0].text = str(idF)
         row[1].text = name
         row[2].text = path
         row[3].text = hashF
         row[4].text = match
-        # row[5].text = textF
-        row[5].text = metadata
+        row[5].text = cutText
+        row[6].text = metadata
 
     for section in doc.sections:
         footer = section.footer

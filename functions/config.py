@@ -10,17 +10,18 @@ from helpers.saveAutoStart import saveAutoStart
 maxFuncValue = 12   # update if new functionalities were createdyh
 def mainMenuFunctions(): return '''
         \n1. Deep folder scan 🔎
-        \n2. Get text of file Ⓐ
-        \n3. Get text of screen 🖥
-        \n4. Get hash of file/folder #
-        \n5. Get metadata of file ␐
-        \n6. Compress file/folder 🗜
-        \n7. Get IP/URL data 💻
-        \n8. Search malware in IP/URL 🦠
-        \n9. Search malware in file 🦠
-        \n10. Search executables in file 🦠
-        \n11. Process and map impacts of phones in cells 📱
-        \n12. Download forensically a YouTube Video ▷
+        \n2. Create reports from database 🖨
+        \n3. Get text of file Ⓐ
+        \n4. Get text of screen 🖥
+        \n5. Get hash of file/folder #
+        \n6. Get metadata of file ␐
+        \n7. Compress file/folder 🗜
+        \n8. Get IP/URL data 💻
+        \n9. Search malware in IP/URL 🦠
+        \n10. Search malware in file 🦠
+        \n11. Search executables in file 🦠
+        \n12. Process and map impacts of phones in cells 📱
+        \n13. Download forensically a YouTube Video ▷
         '''
 
 def config():
@@ -64,6 +65,8 @@ def config():
         elif configOption == 3:
             print('launch banner')
             banner()
+            break
+        elif configOption == 4:
             break
 
         # if configOption == 1:

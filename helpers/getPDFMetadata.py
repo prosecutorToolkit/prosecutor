@@ -10,7 +10,7 @@ def getPDFMetadata(file):
             except:
                 try: value = value.decode('utf-16')
                 except: value = value.decode('utf-32')
-        data += '\n' + str(key) + ': ' + str(value)
+        data += str(key) + ': ' + str(value) + '\n'
     return data
 
 

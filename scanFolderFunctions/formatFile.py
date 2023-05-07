@@ -124,18 +124,18 @@ def formatFile():
                 continue
             
             fList = []
-            if getPDF: fList.append('pdf')
-            if getTXT: fList.append('txt')
-            if getJPG: fList.append('jpg')
-            if getJPEG: fList.append('jpeg')
-            if getTIFF: fList.append('tiff')
-            if getBMP: fList.append('bmp')
-            if getGIF: fList.append('gif')
-            if getXLS: fList.append('xls')
-            if getXLSX: fList.append('xlsx')
-            if getCSV: fList.append('csv')
-            if getPNG: fList.append('png')
-            if getICO: fList.append('ico')
+            if getPDF: fList.append('.pdf')
+            if getTXT: fList.append('.txt')
+            if getJPG: fList.append('.jpg')
+            if getJPEG: fList.append('.jpeg')
+            if getTIFF: fList.append('.tiff')
+            if getBMP: fList.append('.bmp')
+            if getGIF: fList.append('.gif')
+            if getXLS: fList.append('.xls')
+            if getXLSX: fList.append('.xlsx')
+            if getCSV: fList.append('.csv')
+            if getPNG: fList.append('.png')
+            if getICO: fList.append('.ico')
 
             answer = yesNo('Selected files:\n{}\nAre you sure that you want to get this? (y/n)\n > '.format(shownString))
             if answer == False: continue

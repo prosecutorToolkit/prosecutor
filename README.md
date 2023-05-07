@@ -19,6 +19,7 @@ ______________________
 ______________________
 # Tools:
     Deep folder scan 🔎
+    Create reports from database 🖨
     Get text of file Ⓐ
     Get text of screen 🖥
     Get hash of file/folder #

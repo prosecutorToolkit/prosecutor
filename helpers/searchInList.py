@@ -1,12 +1,19 @@
 import re
 
-# This function search a list of inputs in a given text
 def searchInList(listOfSearch, text):
     matchF = ''
-    
+    match_text = ''
+    text = text.replace('\n', ' ')
     for searchTerm in listOfSearch:
-        if re.search(searchTerm, text, re.IGNORECASE):
+        escapedTerm = re.escape(searchTerm)
+        match = re.search(escapedTerm, text, re.IGNORECASE)
+        if match:
             matchF = str(searchTerm)
+            start = max(0, match.start() - 20)
+            end = min(len(text), match.end() + 20)
+            prefix = '(...) ' if start > 0 else ''
+            suffix = ' (...)' if end < len(text) else ''
+            match_text = f"{prefix}{text[start:end]}{suffix}"
             break
-    
-    return matchF
+
+    return matchF, match_text

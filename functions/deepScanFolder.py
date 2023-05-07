@@ -12,6 +12,7 @@ from scanFolderFunctions.processMatchWords import processMatchWords
 from scanFolderFunctions.routeFiles import routeFiles
 from scanFolderFunctions.readEngine import readEngine
 from scanFolderFunctions.createReports import createReports
+from helpers.sql import createScanReportTable
 
 sys.path.append('./helpers')
 from helpers.message import error, blue, show, success, title, yellow
@@ -19,6 +20,8 @@ from helpers.yesNo import yesNo
 from helpers.selectFileFolder import selectFileFolder
 from helpers.timeReport import timeReport
 from helpers.merkleTree import merkleTree
+from helpers.createHeader import header
+from helpers.sql import saveHeaderInTable, saveIgnoredFilesInDB
 
 
 def deepScanFolder():
@@ -82,7 +85,7 @@ def deepScanFolder():
                             print('\n9. CLEAN ALL\n10. NONE: START SCAN')
                             blue('\nWhat do you want to update?')
                             update = int(input(' > '))
-                            if update < 1 or update > 9:
+                            if update < 1 or update > 10:
                                 error('must select a valid number. ID=S6')
                                 blue('ENTER to try again')
                                 option = input(' > ')
@@ -106,6 +109,8 @@ def deepScanFolder():
                         elif update == 9: __init__()
                         else: break
 
+        ################# START #####################
+
             if listOfSearch:
                 title('Processing inputs')
                 errStr = 'processMatchWords'
@@ -114,21 +119,16 @@ def deepScanFolder():
             else: yellow('There are no inputs setted to process')
 
             errStr = 'routeFiles'
-            allFilesRouteList, filesRouteList = routeFiles(formatsListInObj, targetFolder)
+            filesRouteList, ignoredFilesList = routeFiles(formatsListInObj, targetFolder)
+
+            if not filesRouteList:
+                error('The target folder havent files to scan. ID=S13')
+                break
 
             errStr = 'timeReport'
             time_report = timeReport()
         
             filePath = os.path.join(destinationFolder, 'Prosecutor report ' + time_report)
-
-            sqlFilePath = filePath + '.db'
-
-            errStr = 'readEngine'
-            listOfData = readEngine(dataToGetObject, filesRouteList, listOfSearch, sqlFilePath)
-            if listOfData: success('The files have been readed!')
-            else: error('Unknown. Cant read the files. ID=S11')
-
-            # print(str(listOfData))
 
             errStr = 'shownQuery'
             shownQuery = shownQuery.replace('\n', ' ')
@@ -138,21 +138,26 @@ def deepScanFolder():
             mercle = str(merkleTree(targetFolder))
 
             errStr = 'Head class'
-            class Head:
-                def __init__(self, time_report, caseData, targetFolder, mercle, formatsListInObj, shownQuery, misspellingsObject):
-                    self.user = "> User: " + os.getlogin()
-                    self.time = "> Date time: " + time_report
-                    self.case = "> Case data: " + caseData
-                    self.target = "> Main target folder: " + targetFolder
-                    self.mercle = "> Hash of folder: " + mercle
-                    self.formats = "> Format search: " + formatsListInObj.strInLine
-                    self.terms = "> Search terms: " + shownQuery
-                    self.misspellings = "> Include spelling variations: " + misspellingsObject.strInLine
+            headObj = header(time_report, caseData, targetFolder, mercle, formatsListInObj.strInLine, shownQuery, misspellingsObject.strInLine)
 
-            headObj = Head(time_report, caseData, targetFolder, mercle, formatsListInObj, shownQuery, misspellingsObject)
+            sqlFilePath = filePath + '.db'
+            createScanReportTable(sqlFilePath)
+
+            errStr = 'Save header in DB'
+            data = (time_report, caseData, targetFolder, mercle, formatsListInObj.strInLine, shownQuery, misspellingsObject.strInLine)
+            saveHeaderInTable(sqlFilePath, data)
+
+            saveIgnoredFilesInDB(sqlFilePath, ignoredFilesList)
+
+            errStr = 'Read engine'
+            listOfData = readEngine(dataToGetObject, filesRouteList, listOfSearch, sqlFilePath)
+            if listOfData:
+                success('The files have been readed!')
+            else:
+                error('Unknown. Cant read the files. ID=S11')
 
             errStr = 'createReports'
-            reports = createReports(listOfData, outputFilesObject, allFilesRouteList, headObj, filePath, sqlFilePath)
+            reports = createReports(sqlFilePath, filePath, outputFilesObject, headObj, listOfData, ignoredFilesList)
             if reports: success('The report/s have been created! 😎')
             else: error('Unknown. Cant create the report. ID=S12')
 

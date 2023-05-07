@@ -1,11 +1,10 @@
-import sys, os
+import os
 from os import walk
-from shutil import rmtree
 
 def routeFiles(formatsListInObj, targetPath):
     numallfiles = 0
     filesRouteList = []
-    allFilesRouteList = []
+    ignoredFilesList = []
 
     ram = []
     ram.append(targetPath)
@@ -14,16 +13,13 @@ def routeFiles(formatsListInObj, targetPath):
             try:
                 listafiles = next(walk(route))[2]
                 for file in listafiles:
-                    recognizedFormat = False 
-                    for final in formatsListInObj.list:
-                        if file.endswith(final):
-                            fileRoute = os.path.join(route, file)
-                            filesRouteList.append(fileRoute)
-                            numallfiles += 1
-                            recognizedFormat = True
-                    if not recognizedFormat:
+                    ext = os.path.splitext(file)[1].lower()
+                    if ext in formatsListInObj.list:
                         fileRoute = os.path.join(route, file)
-                        allFilesRouteList.append(fileRoute)
+                        filesRouteList.append(fileRoute)
+                        numallfiles += 1
+                    else:
+                        ignoredFilesList.append((file, ext, route))
             except: pass
             ram.remove(route)
             try:
@@ -33,4 +29,4 @@ def routeFiles(formatsListInObj, targetPath):
                     ram.append(route1)
             except: pass
 
-    return allFilesRouteList, filesRouteList
+    return filesRouteList, ignoredFilesList

@@ -15,6 +15,7 @@ from turtle import *
 sys.path.append('./functions')
 from functions.scanScreen import scanScreen
 from functions.deepScanFolder import deepScanFolder
+from functions.createReportsFromDB import createReportsFromDB
 from functions.getMetadata import getMetadata
 from functions.getIPData import getIPData
 from functions.getText import getText
@@ -40,17 +41,18 @@ mainMenuOthers = '''
 
 def launchFunctions(option):
     if option == 1: deepScanFolder()
-    elif option == 2: getText()
-    elif option == 3: scanScreen()
-    elif option == 4: getHash()
-    elif option == 5: getMetadata()
-    elif option == 6: compressFile()
-    elif option == 7: getIPData()
-    elif option == 8: scanIPURLInVT()
-    elif option == 9: scanFileInVT()
-    elif option == 10: scanFileInHEX()
-    elif option == 11: mapCreatorForPhoneCellsData()
-    elif option == 12: getYoutubeVideo()
+    elif option == 2: createReportsFromDB()
+    elif option == 3: getText()
+    elif option == 4: scanScreen()
+    elif option == 5: getHash()
+    elif option == 6: getMetadata()
+    elif option == 7: compressFile()
+    elif option == 8: getIPData()
+    elif option == 9: scanIPURLInVT()
+    elif option == 10: scanFileInVT()
+    elif option == 11: scanFileInHEX()
+    elif option == 12: mapCreatorForPhoneCellsData()
+    elif option == 13: getYoutubeVideo()
     elif option == 'c' or option == 'C': config()
     elif option == 'a' or option == 'A': about()
 
@@ -58,32 +60,33 @@ class Prosecutor:
     def __init__(self):
         super().__init__()
         firstTime = True
+        passF = False
         while True:
             if firstTime:
-                try:
-                    with open("conf.py", 'r') as file:
-                        content = file.read()
-                        lines = content.split('\n')
-                        for line in lines:
-                            if line.startswith('auto_start'):
-                                _, valor = line.split('=')
-                                option = valor.strip().strip("'")
-                                break
-                            else: option = ""
-                    print("PRESELECTED FUNCTIONALITY: " + str(int(option))) #se pone str(int()) para que genere la falla aca antes de la linea siguiente
-                    launchFunctions(int(option))
-                except:
-                    banner()
-                    blue('Press [enter] to launch the menu')
-                    option = input(' > ')
-                    # try: 
-                    blue("What do you want to do?")
-                    option = input(mainMenuFunctions() + mainMenuOthers)
-                    if option == 'e' or option == 'E': break
-                    elif option != 'c' and option != 'C' and option != 'a' and option != 'A':
-                        option = int(option)
-                    launchFunctions(option)
-                    # except: error('Invalid option. ID=A1')
+                with open("conf.py", 'r') as file:
+                    content = file.read()
+                    lines = content.split('\n')
+                    for line in lines:
+                        if line.startswith('auto_start'):
+                            _, valor = line.split('=')
+                            option = valor.strip().strip("'")
+                            print("PRESELECTED FUNCTIONALITY: " + str(int(option))) # check
+                            launchFunctions(int(option))
+                            passF = True
+                            break
+                        else: option = ""
+                if passF: continue
+                banner()
+                blue('Press [enter] to launch the menu')
+                option = input(' > ')
+                # try: 
+                blue("What do you want to do?")
+                option = input(mainMenuFunctions() + mainMenuOthers)
+                if option == 'e' or option == 'E': break
+                elif option != 'c' and option != 'C' and option != 'a' and option != 'A':
+                    option = int(option)
+                launchFunctions(option)
+                # except: error('Invalid option. ID=A1')
             else:
                 blue('Press [enter] to menu')
                 option = input(' > ')
