@@ -1,0 +1,380 @@
+Prosecutor Toolkit
+
+> User: admin1
+> Case data:   Case number: 111111/2023  Cover sheet: NN S/Averiguación de delito  Judge: Dr. Alejo Ramos Padilla  Prosecutor: Dra. Maria Laura Roteta
+> Date time: 06-05-2023 - 22-21-32
+> Main target folder: /home/admin1/Desktop/app/example/target folder to scan
+> Hash of folder: 6432e75c72bac706d3b455fc1acead8b399ca8f2bd31c34ffc1f3d2b7186ae05
+> Format search:  > i (images) - j (jpg) - e (jpeg) - f (tiff) - b (bmp) - g (gif) - n (png) - o (ico) > t (text) > p (pdf) > d (data) - x (xls) - l (xlsx) - c (csv)
+> Search terms:  - unknown
+> Include spelling variations:  > B/V > G/J > H > U
+
+ID,NAME,PATH,HASH SHA-256,MATCH,CUT_TEXT,METADATA
+1,textSample2.txt,/home/admin1/Desktop/app/example/target folder to scan,310c02c4de1d4e0e1582e1fbd3f56c9ed2eaabc473e3fb3afc2a44094d15683d,,, 
+2,metad_proteccion-de-la-informacion.pdf,/home/admin1/Desktop/app/example/target folder to scan,6bea747816b04ba1055111e7371db0989f81895465daee3be11b0ec26ca3ca33,,,"Author: INCIBE
+CreationDate: 2020-02-04 17:28:02+01:00
+Creator: Adobe InDesign CC 13.0 (Windows)
+ModDate: 2020-02-04 17:28:10+01:00
+Producer: Adobe PDF Library 15.0
+Title: Proteccion de la informacion
+Trapped: False
+"
+3,textSample.txt,/home/admin1/Desktop/app/example/target folder to scan,524ae8473445a4ab03daedd5adb1c4f7d4ff0ad4d1123f094eab384adb982e91,,, 
+4,"Paper - An economic analysis... - Rímoli, Tobias - Spanish.pdf",/home/admin1/Desktop/app/example/target folder to scan,ce7a63ec4f6bf40fbb8e8ef42e67fae222d0caddd3989b230d7f739f6f8b6fc6,,,"Author: Tobias Rimoli Isidro
+Creator: Microsoft® Word 2019
+CreationDate: 2021-10-12 01:15:12-03:00
+ModDate: 2021-10-12 01:15:12-03:00
+Producer: Microsoft® Word 2019
+"
+5,3d_2.jpg,/home/admin1/Desktop/app/example/target folder to scan,80e6c583b9fbc919e20b8a02007aab94bad2001f167b8319b3d80c7a77c0b815,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/3d_2.jpg
+Image Size: (1366, 768)
+Image Height: 768
+Image Width: 1366
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+6,Manual_SharePoint_Alumnos.pdf,/home/admin1/Desktop/app/example/target folder to scan,f1caab5f190271598fafd1e73e1c12f10b1d74769440851d1bdc51e88b0bebb6,,,"Author: Office
+Creator: Microsoft® Word 2010
+CreationDate: 2021-03-09 19:51:32-03:00
+ModDate: 2021-03-09 19:51:32-03:00
+Producer: Microsoft® Word 2010
+"
+7,textSample3.txt,/home/admin1/Desktop/app/example/target folder to scan,35abb36cc5bb727bf9d12dbc0143778e84385cca5d8b36ad11ccfe48cca63446,,, 
+8,3d.jpg,/home/admin1/Desktop/app/example/target folder to scan,3e77f9b0cd4f2434c567db45aa75096984293793b21949437078c179d11f1775,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/3d.jpg
+Image Size: (612, 311)
+Image Height: 311
+Image Width: 612
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+ImageDescription: Perspective 3D Grid. Screen Graph Paper Sheet. Texture Template. Vector illustration
+"
+9,React-Hooks.pptx.pdf,/home/admin1/Desktop/app/example/target folder to scan,08c1e95016f99086e4bab171ec6dfdc4c2ba6fadbbedbd4913f305230e588477,,,"Creator: Google
+Title: 21 - React Hooks.pptx
+"
+10,messenger6.jpeg,/home/admin1/Desktop/app/example/target folder to scan/chat,d67288044332b9a5ed99399ef37a899369a0e07193c8eb81266137f50d1f7d6f,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/messenger6.jpeg
+Image Size: (168, 300)
+Image Height: 300
+Image Width: 168
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+11,chat.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat,09b51f73bfe25d8c764458ab8b12c47af4346a0dc99587e35fb66e79422f2e32,unknown,¥ 4 8:47PM ya fe: Unknown eS online   Hey Gee (...),"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/chat.jpg
+Image Size: (1080, 1920)
+Image Height: 1920
+Image Width: 1080
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+12,chat6.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat,2ae05ce1c9a674925ebb91dae18d258f8399f47244fe0bafc6e858b88e37c526,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/chat6.jpg
+Image Size: (330, 586)
+Image Height: 586
+Image Width: 330
+Image Format: WEBP
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+13,messenger9.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat,106d150a79e6fdba0692367cde5762053cb0a2120f8183bad02390f68f3f81c5,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/messenger9.jpg
+Image Size: (559, 1024)
+Image Height: 1024
+Image Width: 559
+Image Format: WEBP
+Image Mode: RGBA
+Image is Animated: False
+Frames in Image: 1
+"
+14,chat4.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat,c33ffcc01f2ba32b4d91c020329e19927d1d892dbf0c3aa1e09c426c100dbfa8,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/chat4.jpg
+Image Size: (720, 1280)
+Image Height: 1280
+Image Width: 720
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+15,chat3.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat,3fdc52f30daba2d873e1a0dae4d814c8c6b862fd835250d322fa0f4627277127,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/chat3.jpg
+Image Size: (939, 939)
+Image Height: 939
+Image Width: 939
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+16,chat5.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat,c75f961dd1f132c8ff27a66470cf085fe3f3cb46984640564909ecec2027b7ca,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/chat5.jpg
+Image Size: (360, 655)
+Image Height: 655
+Image Width: 360
+Image Format: WEBP
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+17,chat2.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat,93f6ad615814355d74aa54c515457056cd80e4ac411aa374467f7be9fb63c50b,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/chat2.jpg
+Image Size: (561, 960)
+Image Height: 960
+Image Width: 561
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+18,messenger4.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir2,41607c185a77c7fa1db00a83d6e1da2d859b2774572df0e906a9e0178fed1014,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir2/messenger4.jpg
+Image Size: (450, 800)
+Image Height: 800
+Image Width: 450
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+19,chat8.jpeg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir2,28169e08217df1dc539c3b48687e39b019a750f95d812dbe1f45b57467878b22,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir2/chat8.jpeg
+Image Size: (168, 300)
+Image Height: 300
+Image Width: 168
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+20,chat7.jpeg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir2,70b24e5f1f51cd0c59dde1afa309c722af131cc1a21a8afb59d6e4513b01cfb0,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir2/chat7.jpeg
+Image Size: (152, 331)
+Image Height: 331
+Image Width: 152
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+21,chat7.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir2,d5b184d2a39462c52aba9dd1351558899e6bce2396991a877e8d66c372153d1a,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir2/chat7.jpg
+Image Size: (450, 800)
+Image Height: 800
+Image Width: 450
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+22,chat8.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir2,c5eca6ce28e74bbb26ee3caf44e1dfccfcaaa48791d8e47ca834f4d61c5dfb96,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir2/chat8.jpg
+Image Size: (275, 480)
+Image Height: 480
+Image Width: 275
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+23,messenger5.jpeg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir2,543d0712ca7eae3f321bad69c03227084bc89e67ac4be4f4e67194385a881816,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir2/messenger5.jpeg
+Image Size: (168, 300)
+Image Height: 300
+Image Width: 168
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+24,banc account.png,/home/admin1/Desktop/app/example/target folder to scan/finance,c119f8c4c5090da5f23cf41e34fa0082b4626b448d6bc5c6d7ad314869965e8e,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/banc account.png
+Image Size: (1456, 876)
+Image Height: 876
+Image Width: 1456
+Image Format: PNG
+Image Mode: RGBA
+Image is Animated: False
+Frames in Image: 1
+"
+25,transferencia6.jpg,/home/admin1/Desktop/app/example/target folder to scan/finance,6864c183f3bd1c16f485cb93176d2ccfd52febee51eb498d44ee14650c6be577,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/transferencia6.jpg
+Image Size: (675, 1200)
+Image Height: 1200
+Image Width: 675
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+26,transferencia7.jpg,/home/admin1/Desktop/app/example/target folder to scan/finance,0ef002b5dbfef735787be302b22fc416a53ce361dd800948950d941d4078c941,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/transferencia7.jpg
+Image Size: (540, 960)
+Image Height: 960
+Image Width: 540
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+27,transferencia5.jpeg,/home/admin1/Desktop/app/example/target folder to scan/finance,18a7d8db51f40673ac1666b7e7d6ef58b40991dfaaf26473b4d6f8f047ed3ea3,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/transferencia5.jpeg
+Image Size: (750, 1334)
+Image Height: 1334
+Image Width: 750
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+28,impuestos-distorsivos-iva-12.png,/home/admin1/Desktop/app/example/target folder to scan/finance/payments,a7e608628f9e536cb5918c6af83e5950c68343b37335531718a797de0db4b52f,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/payments/impuestos-distorsivos-iva-12.png
+Image Size: (476, 237)
+Image Height: 237
+Image Width: 476
+Image Format: PNG
+Image Mode: P
+Image is Animated: False
+Frames in Image: 1
+"
+29,transferencia4.jpeg,/home/admin1/Desktop/app/example/target folder to scan/finance/payments,c981aabbf02acb8a3b5a24f260996dcd63ae51ccda96883b94935e67e36e13f4,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/payments/transferencia4.jpeg
+Image Size: (922, 2048)
+Image Height: 2048
+Image Width: 922
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+30,transferencia3.jpg,/home/admin1/Desktop/app/example/target folder to scan/finance/payments,79a7728cb5d7f72444de58f5ec0dc75436eca70a0b247bd5ebe0b75cf207fdc1,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/payments/transferencia3.jpg
+Image Size: (554, 1200)
+Image Height: 1200
+Image Width: 554
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+31,instagram.jpeg,/home/admin1/Desktop/app/example/target folder to scan/finance/payments,aa68292b2bb8aff504b67ae0de6cd3ff0c0315e4a06f6d6f7bd4acb19ca60dbb,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/payments/instagram.jpeg
+Image Size: (154, 326)
+Image Height: 326
+Image Width: 154
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+32,messenger3.jpeg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir1,247b45f8b06f27aba9ec6cc8c89b8589b6231433e50ed2ae5b0f21d1dafd402a,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir1/messenger3.jpeg
+Image Size: (242, 430)
+Image Height: 430
+Image Width: 242
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+33,chat9.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir1,113daf93e44e68857d979e95394d0a85ef57af13bccd34fe861611df4eccef86,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir1/chat9.jpg
+Image Size: (583, 1024)
+Image Height: 1024
+Image Width: 583
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+34,chat10.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir1/subdir2,81495fe9577ef7948b300e42d76a1646243044dd6a356cc0a74fd55d0aefcc48,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir1/subdir2/chat10.jpg
+Image Size: (338, 600)
+Image Height: 600
+Image Width: 338
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+35,messenger2.jpg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir1/subdir2,964f30ae34f02fcdfed08732628dbbd76039693ca7625c80707427e331df160a,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir1/subdir2/messenger2.jpg
+Image Size: (307, 512)
+Image Height: 512
+Image Width: 307
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+36,messenger.jpeg,/home/admin1/Desktop/app/example/target folder to scan/chat/subdir1/subdir2,6f346f39c3db26562cd4888006f707aa280bd004b1bafb663011506484e394eb,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/chat/subdir1/subdir2/messenger.jpeg
+Image Size: (242, 430)
+Image Height: 430
+Image Width: 242
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+37,Mercado Pago.jpg,/home/admin1/Desktop/app/example/target folder to scan/finance/money,c64ef18b3116568c513473cc8553a1ac48146e5b2336aad7a0c9230e1eec511f,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/money/Mercado Pago.jpg
+Image Size: (720, 1034)
+Image Height: 1034
+Image Width: 720
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+Software: Google
+YCbCrSubSampling: (2, 2)
+ExifOffset: 58
+"
+38,transferencia3.jpeg,/home/admin1/Desktop/app/example/target folder to scan/finance/money,b30a8d09524e9d978cf155d74c5ecf0521615e25c3cdbb5bde0e4938a289df70,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/money/transferencia3.jpeg
+Image Size: (720, 1280)
+Image Height: 1280
+Image Width: 720
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+39,transferencia.jpeg,/home/admin1/Desktop/app/example/target folder to scan/finance/money,85b261139d8db8d5c01e6bbb6e4e63bcf358e3da067453e8eb66dffa371f7836,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/money/transferencia.jpeg
+Image Size: (1080, 1920)
+Image Height: 1920
+Image Width: 1080
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+40,transferencia.jpg,/home/admin1/Desktop/app/example/target folder to scan/finance/money,a523bc0971693f33ed33fa529bd7c4880654c416b54bee65c82e0ed388e7b4e4,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/money/transferencia.jpg
+Image Size: (720, 1280)
+Image Height: 1280
+Image Width: 720
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+41,transferencia2.jpg,/home/admin1/Desktop/app/example/target folder to scan/finance/money,d6a311e82b20f26828936f79ce49c9bda373bdc820f7aa05d32b1997f16d6c62,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/money/transferencia2.jpg
+Image Size: (540, 1110)
+Image Height: 1110
+Image Width: 540
+Image Format: JPEG
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"
+42,phone.png,/home/admin1/Desktop/app/example/target folder to scan/finance/money,91fb9828aa15e35d312bf41b20d6a11efa4d47ec4b24aab4509e4a75cef1937e,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/money/phone.png
+Image Size: (469, 818)
+Image Height: 818
+Image Width: 469
+Image Format: PNG
+Image Mode: RGBA
+Image is Animated: False
+Frames in Image: 1
+ResolutionUnit: 2
+ExifOffset: 90
+Orientation: 1
+XResolution: 144.0
+YResolution: 144.0
+"
+43,transferencia.png,/home/admin1/Desktop/app/example/target folder to scan/finance/money,15c76c33c8b04496c2aa8f7cc7ca0ed082fbe89c7207b09880e3274e9506b603,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/money/transferencia.png
+Image Size: (168, 300)
+Image Height: 300
+Image Width: 168
+Image Format: PNG
+Image Mode: P
+Image is Animated: False
+Frames in Image: 1
+"
+44,mercado pago 2.jpg,/home/admin1/Desktop/app/example/target folder to scan/finance/money,9c1a56ed12501ff707db44fd80ebe1f990a58b6202179d464c0aa0ff20061efe,,,"Filename: /home/admin1/Desktop/app/example/target folder to scan/finance/money/mercado pago 2.jpg
+Image Size: (1080, 1920)
+Image Height: 1920
+Image Width: 1080
+Image Format: WEBP
+Image Mode: RGB
+Image is Animated: False
+Frames in Image: 1
+"

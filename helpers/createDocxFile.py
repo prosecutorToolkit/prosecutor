@@ -104,10 +104,6 @@ def createDocxFile(path_docx, listOfData, headObj):
         p = row[i].add_paragraph()
         p.add_run(headTable2[i]).bold = True
 
-    for value in listOfData:
-        print(len(value))
-        print(str(value))
-
     for idF, name, path, hashF, match, cutText, textF, metadata in listOfData:
         row = tabla2.add_row().cells
         row[0].text = str(idF)

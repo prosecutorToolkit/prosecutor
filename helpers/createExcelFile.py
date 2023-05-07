@@ -39,9 +39,16 @@ def createExcelFile(path_xlsx, listOfData, headObj, ignoredFilesList):
     sheet_Ignored.column_dimensions['C'].width = 15
     sheet_Ignored.append((("", "FILE", "EXT", "PATH")))
 
-    for idF, file, ext, path in ignoredFilesList:
-        data = ((idF, file, ext, path))
-        sheet_Ignored.append(data)
+    try:
+        for idF, file, ext, path in ignoredFilesList:
+            data = ((idF, file, ext, path))
+            sheet_Ignored.append(data)
+    except:
+        idF = 0
+        for file, ext, path in ignoredFilesList:
+            idF += 1
+            data = ((idF, file, ext, path))
+            sheet_Ignored.append(data)
 
     # MATCH FILES
     sheet_Match.row_dimensions[1].height = 10
