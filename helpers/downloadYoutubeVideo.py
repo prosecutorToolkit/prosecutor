@@ -9,7 +9,7 @@ from helpers.getVideoMetadata import getVideoMetadata
 from helpers.getsha256file import getsha256file
 
 def downloadYoutubeVideo(link, savePath):
-    try:
+    # try:
         strError = 'yt'
         yt = YouTube(link)  # Create a YouTube object
 
@@ -47,5 +47,5 @@ def downloadYoutubeVideo(link, savePath):
         confirm = yesNo('\nDo you want to launch the video?\n > ')
         if confirm: launchFile(fileRoute)
 
-    except:
-        error('\nCant download. Possible causes: There are not internet connection or the folder where you want to save the file require administrator privileges. ID={}.'.format(strError))
+    # except:
+    #     error('\nCant download. Possible causes: There are not internet connection or the folder where you want to save the file require administrator privileges. ID={}.'.format(strError))

@@ -12,7 +12,3 @@ def getPDFMetadata(file):
                 except: value = value.decode('utf-32')
         data += str(key) + ': ' + str(value) + '\n'
     return data
-
-
-# print(getPDFMetadata('/home/admin1/Downloads/Notes App.pdf'))
-# print(getPDFMetadata('/home/admin1/Downloads/Certificado Termux Hacking.pdf'))

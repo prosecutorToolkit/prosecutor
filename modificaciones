@@ -1,0 +1,6 @@
+apt install python3.10-venv
+sudo apt install python3-virtualenv
+sudo apt-get install scrot
+sudo apt install xclip
+sudo apt install tesseract-ocr libtesseract-dev
+

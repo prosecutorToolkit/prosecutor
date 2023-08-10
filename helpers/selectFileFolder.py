@@ -12,9 +12,7 @@ def selectFileFolder(typePath = ''):  # typePath = Target / Destination / DB
         root = tk.Tk()
         root.withdraw()
         
-        print('typePath: '+typePath)
         if typePath == 'File' or typePath == 'DB':
-            print('select path')
             target = filedialog.askopenfilename()
         else:
             target = filedialog.askdirectory()

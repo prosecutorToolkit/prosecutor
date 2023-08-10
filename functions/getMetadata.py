@@ -1,4 +1,4 @@
-import tkinter as tk, colorama, pyperclip, ntpath, sys
+import tkinter as tk, pyperclip, ntpath, sys
 from tkinter import filedialog
 
 sys.path.append('../helpers')
@@ -11,11 +11,13 @@ def getMetadata():
     name = ntpath.basename(file)
     if len(name) > 40: name = name[:40] + "..."
     metadata = extractMetadata(file)
-    if metadata:
+    if metadata == 'Cant get metadata':
+        error('Cant get metadata. ID=getMetadata 1')
+    elif metadata:
         pyperclip.copy(metadata)
         # shown_metadata = metadata[:40]
         # if len(metadata) > 40: shown_metadata += "..."
         success('Your metadata is in the clipboard!\n')
         yellow("File: "+ name + "\n\nMetadata: " + metadata)
     else:
-        error('This format is not supported')
+        error('This format is not supported. ID=getMetadata 2')
