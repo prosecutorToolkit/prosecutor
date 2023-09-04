@@ -38,11 +38,12 @@ ______________________
 ## First time:
     1. git clone https://github.com/prosecutorToolkit/prosecutor.git
     2. cd prosecutor
-    3. virtualenv prosecutorenv
-    4. source prosecutorenv/bin/activate
-    5. pip3 install -r requirements.txt
-    6. sudo apt-get install -y python3-tk
-    7. python3 prosecutor.py
+    3. sudo apt install python3.10-venv python3-virtualenv scrot xclip tesseract-ocr libtesseract-dev -y
+    4. virtualenv prosecutorenv
+    5. source prosecutorenv/bin/activate
+    6. pip3 install -r requirements.txt
+    7. sudo apt-get install -y python3-tk
+    8. python3 prosecutor.py
 
 ## Launch Prosecutor:
     1. cd prosecutor
