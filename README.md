@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://raw.githubusercontent.com/prosecutorToolkit/prosecutor/main/logo.jpg" width="200">
+    <img src="https://raw.githubusercontent.com/prosecutorToolkit/prosecutor/main/logo.jpg?token=GHSAT0AAAAAACQ5O5MTX6WGUBGEH5WPOTSMZRG5WWQ" width="200">
 </p>
 
 # About
